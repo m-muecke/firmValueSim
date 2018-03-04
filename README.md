@@ -1,3 +1,3 @@
 # Firm Valuation Framework
 
-Monte Carlo Simulation for DCF models
+Monte carlo simulation for DCF models.
