@@ -1,4 +1,0 @@
-#Distribution and probability interval
- - check if normal distributed or not -> is due due to rnorm sim.
- - write code for probability interval, i.e. both side probability and probability of    
-   downside and upside w/ confidence intervals
