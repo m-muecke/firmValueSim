@@ -3,8 +3,10 @@ library(shiny)
 library(FinCal)
 library(scales)
 
+
 # define UI for application that plots monte carlo
 ui <- fluidPage(
+  titlePanel("Monte Carlo Simulation for DCF model"),
   #sidebar layout with a input and output definition
   sidebarLayout(
     #inputs select variables to plot
@@ -15,11 +17,12 @@ ui <- fluidPage(
       numericInput(inputId = "wacc_sigma", label = "Standard Deviation of WACC", 1.5),
       numericInput(inputId = "g_mu", label = "Expected Value of g", 3.0),
       numericInput(inputId = "g_sigma", label = "Standard Deviation of g", 0.5),
-      numericInput(inputId = "years", label = "Amount of Years", 5),
+      numericInput(inputId = "years", label = "Number of Years", 5),
       numericInput(inputId = "target_price", label = "Target Price", value = 6)
     ),
     mainPanel(
-      plotOutput(outputId = "histogram")
+      plotOutput(outputId = "histogram"),
+      h4("Probabilty of achieving an upside:")
     )
   )
 )
@@ -67,5 +70,6 @@ server <- function(input, output) {
       scale_fill_manual(values = ifelse(df_values$prices >= input$target_price, "grey", "red")[-length(h$breaks)])
   })
 }
+
 # Create a Shiny app object
 shinyApp(ui = ui, server = server)
