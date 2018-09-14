@@ -1,4 +1,4 @@
-monte_carlo <- function(price, dividend, g_mu, g_sigma, n_sim) {
+monte_carlo <- function(price, dividend, g_mu, g_sigma, n_sim = 1000) {
   ## monte carlo sim for unlevered free cash flow model with perpetuity growth method
   g <- rnorm(1:n_sim, mean = g_mu, sd = g_sigma)
   share_values <- numeric(length(n_sim))
