@@ -3,7 +3,7 @@ library(FinCal)
 
 cash_flow <- c(0, 68327, 64653, 61177, 57887, 54773)
 future_value <- 1737330
-debt ^. ^^^^^^llööäää^^^^^<<<<<<<<<<>>>>>>>><<<<<^^----^^^^^--------<<^^^^^^<<^^^^√√√√√√√^^^^^°°°
+debt <- 
 monte_carlo <- function(n_sim = 100000, CF = cash_flow, FV = future_value, debt = 8777, shares = 36228, 
                         wacc_mu = 7.0, wacc_sigma = 1.5, g_mu = 3.0, g_sigma = 0.5, years = 5){
   ## monte carlo sim for unlevered free cash flow model with perpetuity growth method
@@ -70,7 +70,7 @@ p <- ggplot(data = df_values, aes(prices)) +
             panel.grid.minor.x) +
       xlim(quantile(df_values$prices)[2] - 1.5 * IQR(df_values$prices), quantile(df_values$prices)[4] + 1.5 * IQR(df_values$prices))
         
-      web#geom_vline(aes(xintercept = median(df_values$prices)), colour = "#990000", linetype = "dashed") +
+      #geom_vline(aes(xintercept = median(df_values$prices)), colour = "#990000", linetype = "dashed") +
       #geom_vline(aes(xintercept = target_price), colour = "blue", linetype = "dashed") +
       #scale_fill_manual(values = c("grey", "green"))
       #scale_fill_manual(values = ifelse(df_values$prices >= target_price, "blue", "red")[-length(df_values$prices)])
