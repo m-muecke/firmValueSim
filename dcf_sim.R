@@ -1,12 +1,9 @@
 library(ggplot2)
 library(FinCal)
 
-cash_flow <- c(0, 68327, 64653, 61177, 57887, 54773)
-future_value <- 1737330
-debt <- 
-monte_carlo <- function(n_sim = 100000, CF = cash_flow, FV = future_value, debt = 8777, shares = 36228, 
-                        wacc_mu = 7.0, wacc_sigma = 1.5, g_mu = 3.0, g_sigma = 0.5, years = 5){
+monte_carlo <- function(n_sim, CF, FV, debt, shares, wacc_mu, wacc_sigma, g_mu, g_sigma, years){
   ## monte carlo sim for unlevered free cash flow model with perpetuity growth method
+
   set.seed(1729) #optional, done for replication purposes
   wacc <- rnorm(1:n_sim, mean = wacc_mu, sd = wacc_sigma)
   g <- rnorm(1:n_sim, mean = g_mu, sd = g_sigma)
