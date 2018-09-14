@@ -38,7 +38,7 @@ server <- function(input, output) {
       #set.seed(1729) #optional, done for replication purposes
       wacc <- rnorm(1:n_sim, mean = wacc_mu, sd = wacc_sigma)
       g <- rnorm(1:n_sim, mean = g_mu, sd = g_sigma)
-      share_values <- c()
+      share_values <- numeric(length(n_sim))
       for(i in 1:n_sim){
         g_t <- sample(g, size = 1, replace = TRUE)
         wacc_t <- sample(wacc, size = 1, replace = TRUE)
@@ -52,7 +52,7 @@ server <- function(input, output) {
         equity_value <- enterprise_value - net_debt
         shares <- shares
         value_per_share <- equity_value / shares
-        share_values <- c(share_values, value_per_share)
+        share_values[i] <- value_per_share
       }
       return(share_values)
     }
