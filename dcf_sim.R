@@ -40,37 +40,3 @@ density_plot <- function(){
   density <- density(values)
   lines(density, col = "red", lwd = 2)
 }
-
-#df_values <- data.frame(prices = monte_carlo(), upside = monte_carlo() >= target_price)
-#p <- ggplot(data = df_values, aes(prices)) +
-#      geom_histogram(bins = 50, color = "black", fill = "white") + 
-#      xlab("Stock Price") +
-#      ylab("Frequency") +
-#      theme(panel.grid.major.x = element_blank(),
-#            panel.grid.minor.x) +
-#      xlim(quantile(df_values$prices)[2] - 1.5 * IQR(df_values$prices), quantile(df_values$prices)[4] + 1.5 * IQR(df_values$prices))
-#        
-#      #geom_vline(aes(xintercept = median(df_values$prices)), colour = "#990000", linetype = "dashed") +
-#      #geom_vline(aes(xintercept = target_price), colour = "blue", linetype = "dashed") +
-#      #scale_fill_manual(values = c("grey", "green"))
-#      #scale_fill_manual(values = ifelse(df_values$prices >= target_price, "blue", "red")[-length(df_values$prices)])
-#
-##calculating prob. of achieving upside
-#target_price <- 6
-#summary(df_values$prices)
-#cat("Probabilty of achieving a upside is:", length(df_values$prices[df_values$prices >= target_price]) / length(df_values$prices))
-#
-#value_at_x_perc <- sort(df_values$prices)[0.5 * length(df_values$prices)]
-#cat("Upside when probabilty is 50%:", ((median(df_values$prices) / target_price) - 1))
-#
-#density(df_values$prices)
-#
-#pdf_plot <- function() {
-#  plot(df_values$`monte_carlo()`)
-#  hist(df_values$`monte_carlo()`, probability = TRUE, main = "Propability Density Function of Simulated Share Prices",
-#       ylab = "", xlab = "", cex.lab = 2.5, cex.axis = 2.5, cex.main = 2.5, cex.sub = 1.5, breaks = 100)
-#  density <- density(df_values$`monte_carlo()`)
-#  lines(density, col = "red", lwd = 2)
-#  curve(dnorm(x, mean = mean(df_values$`monte_carlo()`), sd = sd(df_values$`monte_carlo()`)), add = TRUE, col = "darkblue", lwd = 2)
-#  summary(density$x)
-#}
