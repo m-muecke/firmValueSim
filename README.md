@@ -25,3 +25,10 @@ data, most likely outcome or market consensus. After the distributions
 are assigned, a single value of each parameter distribution gets sampled
 and the discounted cash flow valuation is done either via a FCFF or FCFE
 as per usual.
+
+## References
+
+  - Abrams, J. B. (2001). Quantitative business valuation. New York:
+    McGraw-Hill.
+  - Ballwieser, W., & Hachmeister, D. (2016). Unternehmensbewertung:
+    Prozess, Methoden und Probleme. Schäffer-Poeschel.
