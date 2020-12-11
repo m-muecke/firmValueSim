@@ -28,7 +28,7 @@ ddm_sim <- function(price, dividend, g_mu = NULL, g_sigma = NULL, g_min = NULL,
       stop("Minimum and/or maximium is missing for triangle distribution.")
     }
   } else if (distribution == "uniform") {
-    if (!is.null(g_min) && !is.null(a)) {
+    if (!is.null(g_min) && !is.null(g_max)) {
       g <- runif(n_sim, min = g_min, max = g_max)
     } else {
       stop("Minimum and/or maximium is missing for uniform distribution.")
