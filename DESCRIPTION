@@ -1,5 +1,5 @@
 Package: firmValueSim
-Title: A Simulation Approach to Company Valuations
+Title: A Simulation Approach for Company Valuations
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Maximilian",
