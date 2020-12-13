@@ -12,6 +12,7 @@ ddm_sim(
   g_min = NULL,
   g_max = NULL,
   n_sim = 1000,
+  seed = NULL,
   distribution = c("normal", "triangle", "uniform")
 )
 }
@@ -29,6 +30,8 @@ ddm_sim(
 \item{g_max}{Upper limit of the distribution.}
 
 \item{n_sim}{The number of simulations.}
+
+\item{seed}{State for random number generation.}
 
 \item{distribution}{The type of distribution.}
 }
