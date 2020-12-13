@@ -8,6 +8,7 @@
 #' @param distribution The type of distribution.
 #' @param g_min Lower limit of the distribution.
 #' @param g_max Upper limit of the distribution.
+#' @param seed State for random number generation.
 #'
 #' @return A numeric vector with the current simulated stock prices.
 #' @export
@@ -15,8 +16,11 @@
 #' @examples
 #' dividends <- ddm_sim(25.0, 1.5, g_mu = 0.03, g_sigma = 0.01)
 ddm_sim <- function(price, dividend, g_mu = NULL, g_sigma = NULL, g_min = NULL,
-                    g_max = NULL, n_sim = 1000,
+                    g_max = NULL, n_sim = 1000, seed = NULL,
                     distribution = c("normal", "triangle", "uniform")) {
+  if (!is.null(seed)) {
+    set.seed(seed)
+  }
   distribution <- match.arg(distribution)
   if (distribution == "normal") {
     if (!is.null(g_mu) && !is.null(g_sigma)) {
