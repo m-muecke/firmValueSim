@@ -1,7 +1,7 @@
 #' Monte Carlo Simulation for the dividend discount model (Gordon Growth model)
 #'
-#' @param price The stock price of the company.
 #' @param dividend The distributed dividend for the stock.
+#' @param r Constant cost of equity.
 #' @param g_mu The mean of the normal distribution.
 #' @param g_sigma The standard deviation of the normal distribution.
 #' @param n_sim The number of simulations.
@@ -14,8 +14,8 @@
 #' @export
 #'
 #' @examples
-#' dividends <- ddm_sim(25.0, 1.5, g_mu = 0.03, g_sigma = 0.01)
-ddm_sim <- function(price, dividend, g_mu = NULL, g_sigma = NULL, g_min = NULL,
+#' stock_prices <- ddm_sim(25.0, 1.5, g_mu = 0.03, g_sigma = 0.01)
+ddm_sim <- function(dividend, r, g_mu = NULL, g_sigma = NULL, g_min = NULL,
                     g_max = NULL, n_sim = 1000, seed = NULL,
                     distribution = c("normal", "triangle", "uniform")) {
   if (!is.null(seed)) {
@@ -46,8 +46,23 @@ ddm_sim <- function(price, dividend, g_mu = NULL, g_sigma = NULL, g_min = NULL,
   share_values <- numeric(n_sim)
   for (i in seq_len(n_sim)) {
     g_t <- sample(g, size = 1, replace = TRUE)
-    value_per_share <- price / (dividend - g_t)
-    share_values[i] <- value_per_share
+    share_values[i] <- ddm(dividend, r_t, g_t)
   }
   share_values
+}
+
+#' Gordon Growth Model
+#'
+#' @param d Numeric. Estimated value of dividend in the next year.
+#' @param r Numeric. Constant cost of equity.
+#' @param g Numeric. Constant growth rate for dividends in perpetuity.
+#'
+#' @return The estimated price per share.
+#' @export
+#'
+#' @examples
+#' stock_price <- ddm(1.5, 0.05, 0.03)
+ddm <- function(d, r, g) {
+  value_per_share <- d / (r - g)
+  value_per_share
 }

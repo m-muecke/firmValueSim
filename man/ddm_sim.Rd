@@ -5,8 +5,8 @@
 \title{Monte Carlo Simulation for the dividend discount model (Gordon Growth model)}
 \usage{
 ddm_sim(
-  price,
   dividend,
+  r,
   g_mu = NULL,
   g_sigma = NULL,
   g_min = NULL,
@@ -17,9 +17,9 @@ ddm_sim(
 )
 }
 \arguments{
-\item{price}{The stock price of the company.}
-
 \item{dividend}{The distributed dividend for the stock.}
+
+\item{r}{Constant cost of equity.}
 
 \item{g_mu}{The mean of the normal distribution.}
 
@@ -42,5 +42,5 @@ A numeric vector with the current simulated stock prices.
 Monte Carlo Simulation for the dividend discount model (Gordon Growth model)
 }
 \examples{
-dividends <- ddm_sim(25.0, 1.5, g_mu = 0.03, g_sigma = 0.01)
+stock_prices <- ddm_sim(25.0, 1.5, g_mu = 0.03, g_sigma = 0.01)
 }
