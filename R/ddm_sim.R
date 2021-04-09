@@ -1,21 +1,21 @@
 #' Monte Carlo Simulation for the dividend discount model (Gordon Growth model)
 #'
-#' @param dividend The distributed dividend for the stock.
-#' @param r Constant cost of equity.
-#' @param g_mu The mean of the normal distribution.
-#' @param g_sigma The standard deviation of the normal distribution.
-#' @param n_sim The number of simulations.
-#' @param distribution The type of distribution.
-#' @param g_min Lower limit of the distribution.
-#' @param g_max Upper limit of the distribution.
-#' @param seed State for random number generation.
+#' @param d Numeric. Estimated value of dividend in the next year.
+#' @param r Numeric. Constant cost of equity.
+#' @param g_mu Numeric. The mean of the normal distribution.
+#' @param g_sigma Numeric.The standard deviation of the normal distribution.
+#' @param n_sim Numeric. The number of simulations.
+#' @param distribution Character. The type of distribution.
+#' @param g_min Numeric. Lower limit of the distribution.
+#' @param g_max Numeric. Upper limit of the distribution.
+#' @param seed Numeric. State for random number generation.
 #'
 #' @return A numeric vector with the current simulated stock prices.
 #' @export
 #'
 #' @examples
-#' stock_prices <- ddm_sim(25.0, 1.5, g_mu = 0.03, g_sigma = 0.01)
-ddm_sim <- function(dividend, r, g_mu = NULL, g_sigma = NULL, g_min = NULL,
+#' stock_prices <- ddm_sim(1.5, 0.05, g_mu = 0.03, g_sigma = 0.01)
+ddm_sim <- function(d, r, g_mu = NULL, g_sigma = NULL, g_min = NULL,
                     g_max = NULL, n_sim = 1000, seed = NULL,
                     distribution = c("normal", "triangle", "uniform")) {
   if (!is.null(seed)) {
@@ -46,7 +46,7 @@ ddm_sim <- function(dividend, r, g_mu = NULL, g_sigma = NULL, g_min = NULL,
   share_values <- numeric(n_sim)
   for (i in seq_len(n_sim)) {
     g_t <- sample(g, size = 1, replace = TRUE)
-    share_values[i] <- ddm(dividend, r_t, g_t)
+    share_values[i] <- ddm(d, r, g_t)
   }
   share_values
 }

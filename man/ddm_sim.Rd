@@ -5,7 +5,7 @@
 \title{Monte Carlo Simulation for the dividend discount model (Gordon Growth model)}
 \usage{
 ddm_sim(
-  dividend,
+  d,
   r,
   g_mu = NULL,
   g_sigma = NULL,
@@ -17,23 +17,23 @@ ddm_sim(
 )
 }
 \arguments{
-\item{dividend}{The distributed dividend for the stock.}
+\item{d}{Numeric. Estimated value of dividend in the next year.}
 
-\item{r}{Constant cost of equity.}
+\item{r}{Numeric. Constant cost of equity.}
 
-\item{g_mu}{The mean of the normal distribution.}
+\item{g_mu}{Numeric. The mean of the normal distribution.}
 
-\item{g_sigma}{The standard deviation of the normal distribution.}
+\item{g_sigma}{Numeric.The standard deviation of the normal distribution.}
 
-\item{g_min}{Lower limit of the distribution.}
+\item{g_min}{Numeric. Lower limit of the distribution.}
 
-\item{g_max}{Upper limit of the distribution.}
+\item{g_max}{Numeric. Upper limit of the distribution.}
 
-\item{n_sim}{The number of simulations.}
+\item{n_sim}{Numeric. The number of simulations.}
 
-\item{seed}{State for random number generation.}
+\item{seed}{Numeric. State for random number generation.}
 
-\item{distribution}{The type of distribution.}
+\item{distribution}{Character. The type of distribution.}
 }
 \value{
 A numeric vector with the current simulated stock prices.
@@ -42,5 +42,5 @@ A numeric vector with the current simulated stock prices.
 Monte Carlo Simulation for the dividend discount model (Gordon Growth model)
 }
 \examples{
-stock_prices <- ddm_sim(25.0, 1.5, g_mu = 0.03, g_sigma = 0.01)
+stock_prices <- ddm_sim(1.5, 0.05, g_mu = 0.03, g_sigma = 0.01)
 }
