@@ -7,7 +7,7 @@
 dcf_sim_norm(
   n_sim,
   CF,
-  FV,
+  future_value,
   net_debt,
   shares,
   wacc_mu,
@@ -22,8 +22,6 @@ dcf_sim_norm(
 \item{n_sim}{}
 
 \item{CF}{}
-
-\item{FV}{}
 
 \item{net_debt}{}
 
@@ -40,6 +38,8 @@ dcf_sim_norm(
 \item{years}{}
 
 \item{seed}{}
+
+\item{FV}{}
 }
 \value{
 

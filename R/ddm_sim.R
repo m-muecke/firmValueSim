@@ -3,7 +3,7 @@
 #' @param d Numeric. Estimated value of dividend in the next year.
 #' @param r Numeric. Constant cost of equity.
 #' @param g_mu Numeric. The mean of the normal distribution.
-#' @param g_sigma Numeric.The standard deviation of the normal distribution.
+#' @param g_sigma Numeric. The standard deviation of the normal distribution.
 #' @param n_sim Numeric. The number of simulations.
 #' @param distribution Character. The type of distribution.
 #' @param g_min Numeric. Lower limit of the distribution.
@@ -63,6 +63,5 @@ ddm_sim <- function(d, r, g_mu = NULL, g_sigma = NULL, g_min = NULL,
 #' @examples
 #' stock_price <- ddm(1.5, 0.05, 0.03)
 ddm <- function(d, r, g) {
-  value_per_share <- d / (r - g)
-  value_per_share
+  d / (r - g)
 }

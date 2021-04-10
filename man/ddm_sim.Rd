@@ -23,7 +23,7 @@ ddm_sim(
 
 \item{g_mu}{Numeric. The mean of the normal distribution.}
 
-\item{g_sigma}{Numeric.The standard deviation of the normal distribution.}
+\item{g_sigma}{Numeric. The standard deviation of the normal distribution.}
 
 \item{g_min}{Numeric. Lower limit of the distribution.}
 
