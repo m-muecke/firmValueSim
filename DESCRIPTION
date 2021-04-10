@@ -15,4 +15,4 @@ RoxygenNote: 7.1.1
 Imports:
   triangle
 Suggests: 
-    testthat
+  testthat

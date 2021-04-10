@@ -53,7 +53,7 @@ dcf_sim_norm <- function(n_sim, CF, future_value, net_debt, shares, wacc_mu, wac
 #' @examples
 #' pv <- calc_pv(2000, 0.03, 3)
 calc_pv <- function(fv, r, n) {
-  # TODO: include tests
+  # TODO: include description with references
   fv / (1 + r)^n
 }
 
@@ -68,12 +68,12 @@ calc_pv <- function(fv, r, n) {
 #'
 #' @examples
 #' cf <- rep(25000, 60)
-#' npv <- calc_npv(1000000, cf, 0.0064)
+#' npv <- calc_npv(cf, 0.0064, 1000000)
 calc_npv <- function(cf, r, c0 = 0) {
-  # TODO: include tests
+  # TODO: include description with references
   npv <- 0
-  for (i in seq_along(cf)) {
-    npv <- npv + calc_pv(cf[i], r, i) 
+  for (n in seq_along(cf)) {
+    npv <- npv + calc_pv(cf[n], r, n) 
   }
   npv - c0
 }
@@ -88,8 +88,8 @@ calc_npv <- function(cf, r, c0 = 0) {
 #' @export
 #'
 #' @examples
-#' pv <- calc_fv(1000, 0.1, 5)
+#' fv <- calc_fv(1000, 0.1, 5)
 calc_fv <- function(pv, r, n) {
-  # TODO: include tests
+  # TODO: include description with references
   pv * (1 + r)^n
 }
