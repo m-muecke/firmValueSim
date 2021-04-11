@@ -38,6 +38,24 @@ contain bugs.
 devtools::install_github("maximilian-muecke/firmValueSim")
 ```
 
+### Usage
+
+``` r
+library(ggplot2)
+library(firmValueSim)
+
+# simulate stock prices via the Gordon Growth model
+prices <- ddm_sim(
+  1.5, r = 0.07, g_mu = 0.03, g_sigma = 0.01, n_sim = 10000, seed = 12345
+)
+# visualize distribution of prices
+df <- data.frame(prices = prices)
+ggplot(df, aes(x = prices)) +
+  geom_histogram(binwidth = 5)
+```
+
+<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
+
 ## References
 
 -   Abrams, J. B. (2001). Quantitative business valuation. New York:

@@ -18,7 +18,6 @@
 ddm_sim <- function(d, r, g_mu = NULL, g_sigma = NULL, g_min = NULL,
                     g_max = NULL, n_sim = 1000, seed = NULL,
                     distribution = c("normal", "triangle", "uniform")) {
-  # TODO: include tests
   # TODO: include description with references
   if (!is.null(seed)) {
     set.seed(seed)
@@ -65,7 +64,9 @@ ddm_sim <- function(d, r, g_mu = NULL, g_sigma = NULL, g_min = NULL,
 #' @examples
 #' stock_price <- ddm(1.5, 0.05, 0.03)
 ddm <- function(d, r, g) {
-  # TODO: include tests
   # TODO: include description with references
+  if (r == 0 && g == 0) {
+    stop("You've set cost of equity and the growth rate to zero.")
+  }
   d / (r - g)
 }
