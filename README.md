@@ -5,10 +5,7 @@
 
 <!-- badges: start -->
 
-[![R build
-status](https://github.com/maximilian-muecke/firmValueSim/workflows/R-CMD-check/badge.svg)](https://github.com/maximilian-muecke/firmValueSim/actions?workflow=R-CMD-check)
-[![Codecov test
-coverage](https://codecov.io/gh/maximilian-muecke/firmValueSim/branch/master/graph/badge.svg)](https://codecov.io/gh/maximilian-muecke/firmValueSim?branch=master)
+[![R-CMD-check](https://github.com/maximilian-muecke/firmValueSim/workflows/R-CMD-check/badge.svg)](https://github.com/maximilian-muecke/firmValueSim/actions)
 <!-- badges: end -->
 
 ## Overview
