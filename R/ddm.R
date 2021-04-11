@@ -44,9 +44,7 @@ ddm_sim <- function(d, r, g_mu = NULL, g_sigma = NULL, g_min = NULL,
     } else {
       stop("Minimum and/or maximium is missing for uniform distribution.")
     }
-  } else {
-    stop("Selected a distribution that is not available.")
-  }
+  } 
   share_values <- numeric(n_sim)
   for (i in seq_len(n_sim)) {
     g_t <- sample(g, size = 1, replace = TRUE)

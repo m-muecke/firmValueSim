@@ -92,3 +92,19 @@ test_that("ddm_sim() works for sample data", {
   expect_equal(round(prices, 5),
                c(24.83288, 22.25784, 24.07049, 24.83288, 24.07049))
 })
+
+test_that("ddm_sim() fails as expected", {
+  expect_error(ddm_sim(1.8, n_sim = 0))
+  expect_error(ddm_sim(1.8, r = 0.07, distribution = "normal", n_sim = 0))
+  expect_error(ddm_sim(1.5, r = 0.07, distribution = "triangle"))
+  expect_error(ddm_sim(1.5, r = 0.07, distribution = "triangle", g_min = 0.01))
+  expect_error(ddm_sim(1.5, r = 0.07, distribution = "triangle", g_max = 0.03))
+  expect_error(ddm_sim(1.5, r = 0.07, distribution = "uniform"))
+  expect_error(ddm_sim(1.5, r = 0.07, distribution = "uniform", g_min = 0.01))
+  expect_error(ddm_sim(1.5, r = 0.07, distribution = "uniform", g_max = 0.03))
+  expect_error(ddm_sim(1.5, r = 0.07, distribution = "gaussian"))
+  expect_error(ddm_sim(1.8, r = 0.07, distribution = "normal"))
+  expect_error(ddm_sim(1.8, r = 0.07, g_mu = 0.03))
+  expect_error(ddm_sim(1.8, r = 0.07, g_sigma = 0.03))
+})
+  
