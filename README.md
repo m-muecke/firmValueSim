@@ -4,7 +4,6 @@
 # firmValueSim
 
 <!-- badges: start -->
-
 <!-- badges: end -->
 
 ## Overview
@@ -23,12 +22,20 @@ choosing an underlying distribution. The first-step in the simulation is
 assigning a distribution of the variable, either through historical
 data, most likely outcome or market consensus. After the distributions
 are assigned, a single value of each parameter distribution gets sampled
-and the discounted cash flow valuation is done either via a FCFF or FCFE
-as per usual.
+and the valuation is done as per usual.
+
+## Installation
+
+Warning: Current version is still under heavy development and may
+contain bugs.
+
+``` r
+devtools::install_github("maximilian-muecke/firmValueSim")
+```
 
 ## References
 
-  - Abrams, J. B. (2001). Quantitative business valuation. New York:
+-   Abrams, J. B. (2001). Quantitative business valuation. New York:
     McGraw-Hill.
-  - Ballwieser, W., & Hachmeister, D. (2016). Unternehmensbewertung:
+-   Ballwieser, W., & Hachmeister, D. (2016). Unternehmensbewertung:
     Prozess, Methoden und Probleme. Schäffer-Poeschel.
