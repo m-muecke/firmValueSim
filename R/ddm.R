@@ -19,6 +19,9 @@ ddm_sim <- function(d, r, g_mu = NULL, g_sigma = NULL, g_min = NULL,
                     g_max = NULL, n_sim = 1000, seed = NULL,
                     distribution = c("normal", "triangle", "uniform")) {
   # TODO: include description with references
+  if (n_sim <= 0) {
+    stop("Number of simulations must be greater than one.")
+  }
   if (!is.null(seed)) {
     set.seed(seed)
   }
