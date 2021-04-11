@@ -30,14 +30,11 @@ and the valuation is done as per usual.
 
 ## Installation
 
-Warning: Current version is still under heavy development and may
-contain bugs.
-
 ``` r
 devtools::install_github("maximilian-muecke/firmValueSim")
 ```
 
-### Usage
+## Usage
 
 ``` r
 library(ggplot2)

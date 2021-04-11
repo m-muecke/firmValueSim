@@ -26,13 +26,11 @@ To minimize the downside of the assumptions made in an intrinsic valuation appro
 
 ## Installation
 
-Warning: Current version is still under heavy development and may contain bugs.
-
 ```{r eval = FALSE}
 devtools::install_github("maximilian-muecke/firmValueSim")
 ```
 
-### Usage
+## Usage
 
 ```{r}
 library(ggplot2)
@@ -49,5 +47,6 @@ ggplot(df, aes(x = prices)) +
 ```
 
 ## References
+
 - Abrams, J. B. (2001). Quantitative business valuation. New York: McGraw-Hill.
 - Ballwieser, W., & Hachmeister, D. (2016). Unternehmensbewertung: Prozess, Methoden und Probleme. Schäffer-Poeschel.
