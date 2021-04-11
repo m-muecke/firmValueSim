@@ -12,9 +12,9 @@
 #' @param seed 
 #' @param net_debt 
 #'
-#' @return
-#'
-#' @examples
+#' @return Simulated valuations for company.
+#' @importFrom grDevices boxplot.stats
+#' @importFrom stats rnorm runif
 dcf_sim_norm <- function(n_sim, CF, future_value, net_debt, shares, wacc_mu, wacc_sigma, g_mu,
                          g_sigma, years, seed = NULL){
   # TODO: fix me and include test

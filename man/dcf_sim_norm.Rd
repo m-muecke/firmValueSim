@@ -42,7 +42,7 @@ dcf_sim_norm(
 \item{FV}{}
 }
 \value{
-
+Simulated valuations for company.
 }
 \description{
 Monte Carlo simulation for unlevered free cash flow model with perpetuity growth method
