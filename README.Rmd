@@ -33,12 +33,32 @@ devtools::install_github("maximilian-muecke/firmValueSim")
 ## Usage
 
 ```{r}
-library(ggplot2)
 library(firmValueSim)
+library(ggplot2)
+library(quantmod)
 
 # simulate stock prices via the Gordon Growth model
 prices <- ddm_sim(
   1.5, r = 0.07, g_mu = 0.03, g_sigma = 0.01, n_sim = 10000, seed = 12345
+)
+# visualize distribution of prices
+df <- data.frame(prices = prices)
+ggplot(df, aes(x = prices)) +
+  geom_histogram(binwidth = 5)
+
+# or fetch yahoo finance data with quantmod
+financials <- getQuote(
+  "DAI.DE",
+  what = yahooQF(c("Market Capitalization", "Dividend/Share", "Earnings/Share"))
+)
+# calculate plowback ration = 1 - (dividend per share / EPS)
+b <- plowback_ratio(financials[, "Dividend/Share"], financials[, "Earnings/Share"])
+# calculate growth rate: g = ROE x plowback ratio
+g <- 0.1252 * b
+# simulate stock prices via the Gordon Growth model
+prices <- ddm_sim(
+  financials[, "Dividend/Share"], r = 0.12, g_mu = g, g_sigma = 0.15*g,
+  n_sim = 10000, seed = 12345
 )
 # visualize distribution of prices
 df <- data.frame(prices = prices)
@@ -49,4 +69,3 @@ ggplot(df, aes(x = prices)) +
 ## References
 
 - Abrams, J. B. (2001). Quantitative business valuation. New York: McGraw-Hill.
-- Ballwieser, W., & Hachmeister, D. (2016). Unternehmensbewertung: Prozess, Methoden und Probleme. Schäffer-Poeschel.

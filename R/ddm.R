@@ -71,3 +71,36 @@ ddm <- function(d, r, g) {
   }
   d / (r - g)
 }
+
+#' Dividend growth rate
+#' 
+#' Growth rate equals the return on equity times the plowback ratio, or growth
+#' is determined by how much of earnings is put back into the firm, and how profitable
+#' those earnings are.
+#'
+#' @param ROE Numeric. Return on equity.
+#' @param b Numeric. Plowback ratio.
+#'
+#' @return The company's growth rate.
+#' @export
+#'
+#' @examples
+#' g <- growth_rate(0.25, 0.4)
+growth_rate <- function(ROE, b) {
+  ROE * b
+}
+
+#' Dividend plowback ratio.
+#'
+#' @param d Numeric. Dividend per share.
+#' @param eps Numeric. Earnings per share.
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#' b <- plowback_ratio(0.84, 5.73)
+plowback_ratio <- function(d, eps) {
+  1 - d / eps
+}
+
