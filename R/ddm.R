@@ -103,4 +103,3 @@ growth_rate <- function(ROE, b) {
 plowback_ratio <- function(d, eps) {
   1 - d / eps
 }
-

@@ -39,18 +39,6 @@ devtools::install_github("maximilian-muecke/firmValueSim")
 ``` r
 library(firmValueSim)
 library(ggplot2)
-library(quantmod)
-#> Loading required package: xts
-#> Loading required package: zoo
-#> 
-#> Attaching package: 'zoo'
-#> The following objects are masked from 'package:base':
-#> 
-#>     as.Date, as.Date.numeric
-#> Loading required package: TTR
-#> Registered S3 method overwritten by 'quantmod':
-#>   method            from
-#>   as.zoo.data.frame zoo
 
 # simulate stock prices via the Gordon Growth model
 prices <- ddm_sim(
@@ -63,29 +51,6 @@ ggplot(df, aes(x = prices)) +
 ```
 
 <img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
-
-``` r
-# or fetch yahoo finance data with quantmod
-financials <- getQuote(
-  "DAI.DE",
-  what = yahooQF(c("Market Capitalization", "Dividend/Share", "Earnings/Share"))
-)
-# calculate plowback ration = 1 - (dividend per share / EPS)
-b <- plowback_ratio(financials[, "Dividend/Share"], financials[, "Earnings/Share"])
-# calculate growth rate: g = ROE x plowback ratio
-g <- 0.1252 * b
-# simulate stock prices via the Gordon Growth model
-prices <- ddm_sim(
-  financials[, "Dividend/Share"], r = 0.12, g_mu = g, g_sigma = 0.15*g,
-  n_sim = 10000, seed = 12345
-)
-# visualize distribution of prices
-df <- data.frame(prices = prices)
-ggplot(df, aes(x = prices)) +
-  geom_histogram(binwidth = 5)
-```
-
-<img src="man/figures/README-unnamed-chunk-3-2.png" width="100%" />
 
 ## References
 
