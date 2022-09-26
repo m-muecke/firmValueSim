@@ -44,7 +44,7 @@ ddm_sim <- function(d, r, g_mu = NULL, g_sigma = NULL, g_min = NULL,
     } else {
       stop("Minimum and/or maximium is missing for uniform distribution.")
     }
-  } 
+  }
   share_values <- numeric(n_sim)
   for (i in seq_len(n_sim)) {
     g_t <- sample(g, size = 1, replace = TRUE)
@@ -53,19 +53,27 @@ ddm_sim <- function(d, r, g_mu = NULL, g_sigma = NULL, g_min = NULL,
   share_values
 }
 
-#' Gordon Growth Model
+#' Dividend Discount Model (Gordon Growth Model)
+#'
+#' `ddm()` calculates the company stock price based on the dividend discount
+#'  model. The dividend discount model is a method of valuing the stock price of
+#'  a company based on the future dividend payments it will make, discounted
+#'  back to their present value.
 #'
 #' @param d Numeric. Estimated value of dividend in the next year.
 #' @param r Numeric. Constant cost of equity.
 #' @param g Numeric. Constant growth rate for dividends in perpetuity.
 #'
 #' @return The estimated price per share.
-#' @export
+olll#' @export
 #'
+#' @references
+#' Gordon, M. J. (1959). Dividends, earnings, and stock prices.
+#' The review of economics and statistics, 99-105.ISO 690
+
 #' @examples
 #' stock_price <- ddm(1.5, 0.05, 0.03)
 ddm <- function(d, r, g) {
-  # TODO: include description with references
   if (r == 0 && g == 0) {
     stop("You've set cost of equity and the growth rate to zero.")
   }
@@ -73,7 +81,7 @@ ddm <- function(d, r, g) {
 }
 
 #' Dividend growth rate
-#' 
+#'
 #' Growth rate equals the return on equity times the plowback ratio, or growth
 #' is determined by how much of earnings is put back into the firm, and how profitable
 #' those earnings are.
