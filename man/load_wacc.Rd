@@ -11,9 +11,6 @@ load_wacc(
 \arguments{
 \item{region}{}
 }
-\value{
-
-}
 \description{
 \code{load_wacc} loads Aswath Damodaran's latest cost of capital by industry
 data.

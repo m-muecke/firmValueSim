@@ -11,9 +11,6 @@ load_eps_growth_rate(
 \arguments{
 \item{region}{}
 }
-\value{
-
-}
 \description{
 \code{load_eps_growth_rate} loads Aswath Damodaran's latest fundamental growth
 rate in EPS by industry data.

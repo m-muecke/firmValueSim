@@ -18,7 +18,6 @@
 ddm_sim <- function(d, r, g_mu = NULL, g_sigma = NULL, g_min = NULL,
                     g_max = NULL, n_sim = 1000, seed = NULL,
                     distribution = c("normal", "triangle", "uniform")) {
-  # TODO: include description with references
   if (n_sim <= 0) {
     stop("Number of simulations must be greater than one.")
   }
@@ -65,7 +64,7 @@ ddm_sim <- function(d, r, g_mu = NULL, g_sigma = NULL, g_min = NULL,
 #' @param g Numeric. Constant growth rate for dividends in perpetuity.
 #'
 #' @return The estimated price per share.
-olll#' @export
+#' @export
 #'
 #' @references
 #' Gordon, M. J. (1959). Dividends, earnings, and stock prices.
@@ -83,10 +82,10 @@ ddm <- function(d, r, g) {
 #' Dividend growth rate
 #'
 #' Growth rate equals the return on equity times the plowback ratio, or growth
-#' is determined by how much of earnings is put back into the firm, and how profitable
-#' those earnings are.
+#' is determined by how much of earnings is put back into the firm, and how
+#' profitable those earnings are.
 #'
-#' @param ROE Numeric. Return on equity.
+#' @param roe Numeric. Return on equity.
 #' @param b Numeric. Plowback ratio.
 #'
 #' @return The company's growth rate.
@@ -94,8 +93,8 @@ ddm <- function(d, r, g) {
 #'
 #' @examples
 #' g <- growth_rate(0.25, 0.4)
-growth_rate <- function(ROE, b) {
-  ROE * b
+growth_rate <- function(roe, b) {
+  roe * b
 }
 
 #' Dividend plowback ratio.

@@ -11,9 +11,6 @@ load_beta(
 \arguments{
 \item{region}{}
 }
-\value{
-
-}
 \description{
 \code{load_beta} loads Aswath Damodaran's latest total beta by industry
 data.

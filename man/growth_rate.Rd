@@ -4,10 +4,10 @@
 \alias{growth_rate}
 \title{Dividend growth rate}
 \usage{
-growth_rate(ROE, b)
+growth_rate(roe, b)
 }
 \arguments{
-\item{ROE}{Numeric. Return on equity.}
+\item{roe}{Numeric. Return on equity.}
 
 \item{b}{Numeric. Plowback ratio.}
 }
@@ -16,8 +16,8 @@ The company's growth rate.
 }
 \description{
 Growth rate equals the return on equity times the plowback ratio, or growth
-is determined by how much of earnings is put back into the firm, and how profitable
-those earnings are.
+is determined by how much of earnings is put back into the firm, and how
+profitable those earnings are.
 }
 \examples{
 g <- growth_rate(0.25, 0.4)

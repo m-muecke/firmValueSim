@@ -2,7 +2,7 @@
 % Please edit documentation in R/ddm.R
 \name{ddm}
 \alias{ddm}
-\title{Gordon Growth Model}
+\title{Dividend Discount Model (Gordon Growth Model)}
 \usage{
 ddm(d, r, g)
 }
@@ -17,8 +17,15 @@ ddm(d, r, g)
 The estimated price per share.
 }
 \description{
-Gordon Growth Model
+\code{ddm()} calculates the company stock price based on the dividend discount
+model. The dividend discount model is a method of valuing the stock price of
+a company based on the future dividend payments it will make, discounted
+back to their present value.
 }
 \examples{
 stock_price <- ddm(1.5, 0.05, 0.03)
+}
+\references{
+Gordon, M. J. (1959). Dividends, earnings, and stock prices.
+The review of economics and statistics, 99-105.ISO 690
 }

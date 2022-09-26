@@ -11,9 +11,6 @@ plowback_ratio(d, eps)
 
 \item{eps}{Numeric. Earnings per share.}
 }
-\value{
-
-}
 \description{
 Dividend plowback ratio.
 }
